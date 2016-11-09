@@ -1,30 +1,37 @@
-//import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+//import java.util.Locale;
 
 public class DemandAsile extends Personne {
 	
-	private String dateLimiteAutorisation;
+	//private String dateLimiteAutorisation;
+	SimpleDateFormat datformat = null;
+	private Date dateLimiteAutorisation;
 	private Boolean regularise;
 
 	public DemandAsile(String nomfamille, String prenom, Integer age, Boolean feminin, Adresse adrpers) {
 		super(nomfamille, prenom, age, feminin, adrpers);
 		this.regularise = false;
-		this.dateLimiteAutorisation = "aujourd'hui";
+		dateLimiteAutorisation = new Date();
+		datformat = new SimpleDateFormat("dd-MM-yy");
+		
+		//this.dateLimiteAutorisation = "aujourd'hui";
 	}
 
 	@Override
 	public String toString() {
-		return "DemandAsile [dateLimiteAutorisation=" + dateLimiteAutorisation
+		return "DemandAsile [dateLimiteAutorisation=" + datformat.format(dateLimiteAutorisation)
 				+ ", regularise=" + regularise + ", prenom=" + prenom
 				+  ", feminin=" + feminin
 				+ ", adrpers=" + adrpers + "]";
 	}
 
 	public String getDateLimiteAutorisation() {
-		return dateLimiteAutorisation;
+		return datformat.format(dateLimiteAutorisation);
 	}
 
 	public void setDateLimiteAutorisation(String dateLimiteAutorisation) {
-		this.dateLimiteAutorisation = dateLimiteAutorisation;
+		this.dateLimiteAutorisation = new Date();
 	}
 
 	public void demanderAsile(Adresse adrasile) {
@@ -47,7 +54,9 @@ public class DemandAsile extends Personne {
 	}
 	
 	public void demenage(Adresse nouvadr) {
-		this.adrpers=nouvadr;
+		if (this.regularise == true) {
+			this.adrpers=nouvadr;
+		}
 	}
 
 }

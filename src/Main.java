@@ -9,7 +9,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 				
-	/*	System.out.println("Saisir votre nom de famille : ");
+/*		System.out.println("Saisir votre nom de famille : ");
 		String nom = saisie.nextLine();
 
 		System.out.println("Saisir votre prénom : ");
@@ -20,22 +20,22 @@ public class Main {
 
 		System.out.println("Quel est votre sexe ? (f/f/M/m)");
 		Boolean feminin=(saisie.nextLine()=="F"||saisie.nextLine() =="f") ? true : false;
-	*/	
+		
 		Adresse adr = new Adresse(30, "Jullien","70000","Maville");
 		
-	//	Personne pers = new Personne(nom, prenom, age, feminin, adr);
-//		pers.setAdrpers(adr);
-	//	System.out.println(pers);
+		Personne pers = new Personne(nom, prenom, age, feminin, adr);
+		pers.setAdrpers(adr);
+		System.out.println(pers);
 		
-	//	adr.affichAdr();
+		adr.affichAdr();
 
-	//	pers.declineTonIdentite();
-		
+		pers.declineTonIdentite();
+*/		
 		Adresse adrrefugie = new Adresse();
 		
 		DemandAsile refugie = new DemandAsile("JBON", "JEAN", 30, false, adrrefugie);
 		System.out.println(refugie);
-		adrrefugie = adr;
+/*		adrrefugie = adr;
 		refugie.demanderAsile(adrrefugie);
 		System.out.println(refugie);
 		adrrefugie.setNumRue(13);
@@ -44,7 +44,7 @@ public class Main {
 		System.out.println(refugie);
 		
 		
-	/*	System.out.println("Saisir votre nom de famille : ");
+		System.out.println("Saisir votre nom de famille : ");
 		String nomfamille = saisie.nextLine();
 		pers.setNomFamille(nomfamille);
 
